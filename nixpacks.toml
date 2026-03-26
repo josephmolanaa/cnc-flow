@@ -2,7 +2,7 @@
 nixPkgs = [
     "php83",
     "php83Extensions.intl",
-    "php83Extensions.mbstring", 
+    "php83Extensions.mbstring",
     "php83Extensions.xml",
     "php83Extensions.curl",
     "php83Extensions.zip",
@@ -13,6 +13,7 @@ nixPkgs = [
     "php83Extensions.tokenizer",
     "php83Extensions.ctype",
     "php83Extensions.fileinfo",
+    "php83Extensions.exif",
     "composer"
 ]
 
@@ -24,7 +25,7 @@ cmds = [
 [phases.build]
 cmds = [
     "php artisan config:cache",
-    "php artisan route:cache", 
+    "php artisan route:cache",
     "php artisan view:cache",
     "php artisan filament:assets"
 ]
