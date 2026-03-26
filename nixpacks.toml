@@ -1,11 +1,30 @@
 [phases.setup]
-nixPkgs = ["php83", "php83Extensions.intl", "php83Extensions.mbstring", "php83Extensions.xml", "php83Extensions.curl", "php83Extensions.zip", "php83Extensions.gd", "php83Extensions.pdo_mysql", "php83Extensions.opcache", "php83Extensions.sodium", "composer"]
+nixPkgs = [
+    "php83",
+    "php83Extensions.intl",
+    "php83Extensions.mbstring", 
+    "php83Extensions.xml",
+    "php83Extensions.curl",
+    "php83Extensions.zip",
+    "php83Extensions.gd",
+    "php83Extensions.pdo_mysql",
+    "php83Extensions.opcache",
+    "php83Extensions.sodium",
+    "php83Extensions.tokenizer",
+    "php83Extensions.ctype",
+    "php83Extensions.fileinfo",
+    "composer"
+]
+
+[phases.install]
+cmds = [
+    "composer install --optimize-autoloader --no-dev --no-interaction --ignore-platform-reqs"
+]
 
 [phases.build]
 cmds = [
-    "composer install --optimize-autoloader --no-dev",
     "php artisan config:cache",
-    "php artisan route:cache",
+    "php artisan route:cache", 
     "php artisan view:cache",
     "php artisan filament:assets"
 ]
